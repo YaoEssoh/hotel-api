@@ -57,8 +57,10 @@ export class PaiementService {
           }
         ],
         mode:'payment',
-        success_url:'http://localhost:3000/paiement/success',
-        cancel_url:'http://localhost:3000/paiement/cancel',
+        //success_url:'http://localhost:3000/paiement/success',
+        success_url:'https://hotel-client-24h6.onrender.com/paiement/success',
+        cancel_url:'https://hotel-client-24h6.onrender.com/paiement/cancel',
+        //cancel_url:'http://localhost:3000/paiement/cancel',
       })
       return session;
     }catch (error){
