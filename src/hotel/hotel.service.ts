@@ -69,7 +69,7 @@ export class HotelService {
       .populate('evaluation')
       .exec();
 
-    if (!hotels.length) throw new NotFoundException("Aucun hôtel trouvé");
+    //if (!hotels.length) throw new NotFoundException("Aucun hôtel trouvé");
 
     const totalHotels = hotels.length;
     const totalChambres = hotels.reduce((acc, hotel) => acc + (hotel.chambre?.length || 0), 0);

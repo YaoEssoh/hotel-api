@@ -245,9 +245,9 @@ export class ReservationService {
     }*/
   ]);
 
-  if (!reservations.length) {
+  /*if (!reservations.length) {
     throw new NotFoundException(`Aucune réservation trouvée pour cet hôtelier`);
-  }
+  }*/
 
   // 🔹 Nombre de clients distincts
   const uniqueClientIds = new Set(reservations.map(r => r.client.toString()));
