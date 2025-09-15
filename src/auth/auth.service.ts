@@ -68,9 +68,9 @@ async forgetMotsDePass(email: string) {
 
     // On teste si c'est un client
     if ('role' in utilisateur && utilisateur.role === 'client') {
-      baseUrl = 'http://localhost:3002'; // Front client
+      baseUrl = 'https://hotel-client-24h6.onrender.com'; // Front client
     } else {
-      baseUrl = 'http://localhost:3001'; // Front hôtelier
+      baseUrl = 'https://hotelier-fbzq.onrender.com'; // Front hôtelier
     }
 
     // 🔹 Préparation et envoi du mail
