@@ -67,21 +67,29 @@ async forgetMotsDePass(email: string) {
     let baseUrl: string;
 
     // On teste si c'est un client
-    if ('role' in utilisateur && utilisateur.role === 'client') {
+    /*if ('role' in utilisateur && utilisateur.role === 'client') {
       baseUrl = 'https://hotel-client-24h6.onrender.com'; // Front client
     } else {
       baseUrl = 'https://hotelier-fbzq.onrender.com'; // Front hôtelier
+    }*/
+
+    if ('role' in utilisateur && utilisateur.role === 'client') {
+      baseUrl = this.configService.get<string>('CLIENT_URL')!;
+    } else {
+      baseUrl = this.configService.get<string>('HOTELIER_URL')!;
     }
+
 
     // 🔹 Préparation et envoi du mail
     const options = {
-      to: utilisateur.email,
-      subject: 'Réinitialisation du mot de passe',
-      html: `
-        <h1>Vous pouvez réinitialiser votre mot de passe</h1>
-        <a href="${baseUrl}/auth/reset/${token}">Cliquez ici</a>
-      `
-    };
+    to: utilisateur.email,
+    subject: 'Réinitialisation du mot de passe',
+    html: `
+      <h1>Vous pouvez réinitialiser votre mot de passe</h1>
+      <a href="${baseUrl}/reset-password/${token}">Cliquez ici</a>
+    `
+  };
+
 
     await this.mailerService.sendMail(options);
 
